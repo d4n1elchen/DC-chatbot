@@ -25,7 +25,7 @@ exports.lineHandler = new LineHandler()
     .onText(async context => {
         const text = context.event.text
         const reply = await olami.nli(text)
-        await context.reply(reply.forEach(rep.toLineMessage()))
+        await context.reply(reply.map(rep => rep.toLineMessage()))
     })
     .onError(async (context, err) => {
         await context.replyText('有東西出錯了，工程師又要加班了 Q_Q')
