@@ -54,7 +54,7 @@ class Olami {
                     text = '對不起，你說的我還不懂，能換個說法嗎？'
             }
 
-            return new TextMessage(text).toLineMessage()
+            return new TextMessage(text)
         }
 
         async function handleMusicKKBOXType(semantic) {
@@ -86,32 +86,32 @@ class Olami {
                 .then(response => {
                     return response.data[dataType + 's'].data
                 })
-            return new KKBOXMessage(data).toLineMessage()
+            return new KKBOXMessage(data)
         }
 
         if("result" in desc)
-            reply.push(new TextMessage(desc.result).toLineMessage())
+            reply.push(new TextMessage(desc.result))
         switch (type) {
             case 'kkbox':
                 if(data.length > 0) {
-                    reply.push(new KKBOXMessage(data).toLineMessage())
+                    reply.push(new KKBOXMessage(data))
                 }
                 break
             case 'ds':
-                reply.push(new TextMessage('請用 /help 指令看看我能怎麼幫助您').toLineMessage())
+                reply.push(new TextMessage('請用 /help 指令看看我能怎麼幫助您'))
                 break
             case 'selection':
                 reply.push(handleSelectionType(desc))
                 break
             case 'news':
-                reply.push(new TextMessage(data[0].detail).toLineMessage())
+                reply.push(new TextMessage(data[0].detail))
                 break
             case 'baike':
-                reply.push(new TextMessage(data[0].description).toLineMessage())
+                reply.push(new TextMessage(data[0].description))
                 break
             case 'joke':
             case 'cooking':
-                reply.push(new TextMessage(data[0].content).toLineMessage())
+                reply.push(new TextMessage(data[0].content))
                 break
             case 'music_kkbox':
                 reply.push(await handleMusicKKBOXType(semantic[0]))
