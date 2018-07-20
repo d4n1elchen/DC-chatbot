@@ -3,12 +3,19 @@ module.exports = {
         channelSecret: "",
         accessToken: ""
     },
+    messenger: {
+        appSecret: "",
+        accessToken: "",
+    },
+    telegram: {
+        accessToken: "",
+    }
     olami: {
         appKey: "",
-        appSecret: ""
+        appSecret: "",
     },
     kkbox: {
         id: "",
-        secret: ""
+        secret: "",
     }
 }
